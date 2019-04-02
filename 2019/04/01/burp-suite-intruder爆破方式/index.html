@@ -79,26 +79,28 @@
 
 
 
-<meta name="description" content="csrf的介绍 csrf的定义跨站请求伪造（英语：Cross-site request forgery），也被称为 one-click attack 或者 session riding，通常缩写为 CSRF 或者 XSRF， 是一种挟制用户在当前已登录的Web应用程序上执行非本意的操作的攻击方法。[1] 跟跨网站脚本（XSS）相比，XSS 利用的是用户对指定网站的信任，CSRF 利用的是网站对用户">
+<meta name="description" content="前言感觉自己应该改变方式，博客应该尽量简短，实在，有效，每个像以前一样都从基础说起，太浪费时间和篇幅了。这位大佬讲的很好，我也借鉴了很多 intruder(闯入者)四种方式Sniper Battering Ram Pitchfork Cluster Bomb 第一种Sniper简单来说 只有1个字典也就是payload set只能选择1但是可以选择多个要爆破的对象加载顺序：将字典依次填入所有变量中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="dvwa之Command csrf(跨站请求伪造)">
-<meta property="og:url" content="http://yoursite.com/2019/03/22/dvwa之Command-csrf-跨站请求伪造/index.html">
+<meta property="og:title" content="burp suite intruder爆破方式">
+<meta property="og:url" content="http://yoursite.com/2019/04/01/burp-suite-intruder爆破方式/index.html">
 <meta property="og:site_name" content="wcqy-ye 的博客">
-<meta property="og:description" content="csrf的介绍 csrf的定义跨站请求伪造（英语：Cross-site request forgery），也被称为 one-click attack 或者 session riding，通常缩写为 CSRF 或者 XSRF， 是一种挟制用户在当前已登录的Web应用程序上执行非本意的操作的攻击方法。[1] 跟跨网站脚本（XSS）相比，XSS 利用的是用户对指定网站的信任，CSRF 利用的是网站对用户">
+<meta property="og:description" content="前言感觉自己应该改变方式，博客应该尽量简短，实在，有效，每个像以前一样都从基础说起，太浪费时间和篇幅了。这位大佬讲的很好，我也借鉴了很多 intruder(闯入者)四种方式Sniper Battering Ram Pitchfork Cluster Bomb 第一种Sniper简单来说 只有1个字典也就是payload set只能选择1但是可以选择多个要爆破的对象加载顺序：将字典依次填入所有变量中">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/25/AtIxrq.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/25/Ato2wV.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/25/AtbSl4.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/25/AtbepD.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/25/AtqS4f.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/25/AtqK8U.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/25/Atq6at.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/25/AtLFJK.jpg">
-<meta property="og:updated_time" content="2019-03-25T13:31:15.144Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/01/AyeArq.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/01/AyeRJg.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/02/A6ON8O.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/02/A6zy36.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/02/A6zRDe.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/02/AcSiKU.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/02/AcSbJ1.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/02/AcSjsO.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/02/AcpmwQ.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/02/Ac9unO.jpg">
+<meta property="og:updated_time" content="2019-04-02T13:58:00.391Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="dvwa之Command csrf(跨站请求伪造)">
-<meta name="twitter:description" content="csrf的介绍 csrf的定义跨站请求伪造（英语：Cross-site request forgery），也被称为 one-click attack 或者 session riding，通常缩写为 CSRF 或者 XSRF， 是一种挟制用户在当前已登录的Web应用程序上执行非本意的操作的攻击方法。[1] 跟跨网站脚本（XSS）相比，XSS 利用的是用户对指定网站的信任，CSRF 利用的是网站对用户">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/03/25/AtIxrq.jpg">
+<meta name="twitter:title" content="burp suite intruder爆破方式">
+<meta name="twitter:description" content="前言感觉自己应该改变方式，博客应该尽量简短，实在，有效，每个像以前一样都从基础说起，太浪费时间和篇幅了。这位大佬讲的很好，我也借鉴了很多 intruder(闯入者)四种方式Sniper Battering Ram Pitchfork Cluster Bomb 第一种Sniper简单来说 只有1个字典也就是payload set只能选择1但是可以选择多个要爆破的对象加载顺序：将字典依次填入所有变量中">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/01/AyeArq.jpg">
 
 
 
@@ -128,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/22/dvwa之Command-csrf-跨站请求伪造/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/01/burp-suite-intruder爆破方式/">
 
 
 
 
 
-  <title>dvwa之Command csrf(跨站请求伪造) | wcqy-ye 的博客</title>
+  <title>burp suite intruder爆破方式 | wcqy-ye 的博客</title>
   
 
 
@@ -241,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/dvwa之Command-csrf-跨站请求伪造/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/01/burp-suite-intruder爆破方式/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wcqy-ye">
@@ -258,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">dvwa之Command csrf(跨站请求伪造)</h1>
+          <h1 class="post-title" itemprop="name headline">burp suite intruder爆破方式</h1>
         
 
         <div class="post-meta">
@@ -270,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-22T11:25:58+08:00">
-                2019-03-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-01T21:17:47+08:00">
+                2019-04-01
               </time>
             
 
@@ -289,8 +291,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/03/22/dvwa之Command-csrf-跨站请求伪造/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/03/22/dvwa之Command-csrf-跨站请求伪造/" itemprop="commentsCount"></span>
+                <a href="/2019/04/01/burp-suite-intruder爆破方式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/04/01/burp-suite-intruder爆破方式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -318,14 +320,16 @@
       
 
       
-        <h1 id="csrf的介绍"><a href="#csrf的介绍" class="headerlink" title="csrf的介绍"></a><em>csrf的介绍</em></h1><p><img src="https://s2.ax1x.com/2019/03/25/AtIxrq.jpg" alt="AtIxrq.jpg" border="0"></p>
-<h2 id="csrf的定义"><a href="#csrf的定义" class="headerlink" title="csrf的定义"></a><em>csrf的定义</em></h2><p>跨站请求伪造（英语：Cross-site request forgery），也被称为 one-click attack 或者 session riding，通常缩写为 CSRF 或者 XSRF， 是一种挟制用户在当前已登录的Web应用程序上执行非本意的操作的攻击方法。[1] 跟跨网站脚本（XSS）相比，XSS 利用的是用户对指定网站的信任，CSRF 利用的是网站对用户网页浏览器的信任。(维基百科定义)</p>
-<h2 id="csrf的防御"><a href="#csrf的防御" class="headerlink" title="csrf的防御"></a><em>csrf的防御</em></h2><p>检查Referer字段<br>HTTP头中有一个Referer字段，这个字段用以标明请求来源于哪个地址。在处理敏感数据请求时，通常来说，Referer字段应和请求的地址位于同一域名下。以上文银行操作为例，Referer字段地址通常应该是转账按钮所在的网页地址，应该也位于 <a href="http://www.examplebank.com之下。而如果是CSRF攻击传来的请求，Referer字段会是包含恶意网址的地址，不会位于www.examplebank.com之下，这时候服务器就能识别出恶意的访问。" target="_blank" rel="noopener">www.examplebank.com之下。而如果是CSRF攻击传来的请求，Referer字段会是包含恶意网址的地址，不会位于www.examplebank.com之下，这时候服务器就能识别出恶意的访问。</a></p>
-<p>这种办法简单易行，工作量低，仅需要在关键访问处增加一步校验。但这种办法也有其局限性，因其完全依赖浏览器发送正确的Referer字段。虽然http协议对此字段的内容有明确的规定，但并无法保证来访的浏览器的具体实现，亦无法保证浏览器没有安全漏洞影响到此字段。并且也存在攻击者攻击某些浏览器，篡改其Referer字段的可能。</p>
-<p>添加校验token<br>由于CSRF的本质在于攻击者欺骗用户去访问自己设置的地址，所以如果要求在访问敏感数据请求时，要求用户浏览器提供不保存在cookie中，并且攻击者无法伪造的数据作为校验，那么攻击者就无法再运行CSRF攻击。这种数据通常是窗体中的一个数据项。服务器将其生成并附加在窗体中，其内容是一个伪随机数。当客户端通过窗体提交请求时，这个伪随机数也一并提交上去以供校验。正常的访问时，客户端浏览器能够正确得到并传回这个伪随机数，而通过CSRF传来的欺骗性攻击中，攻击者无从事先得知这个伪随机数的值，服务端就会因为校验token的值为空或者错误，拒绝这个可疑请求。</p>
-<h1 id="dvwa之csrf"><a href="#dvwa之csrf" class="headerlink" title="dvwa之csrf"></a><em>dvwa之csrf</em></h1><p>通过csrf来演示</p>
-<h2 id="low级别"><a href="#low级别" class="headerlink" title="low级别"></a><em>low级别</em></h2><p><img src="https://s2.ax1x.com/2019/03/25/Ato2wV.jpg" alt="Ato2wV.jpg" border="0"><br>思路：首先看到页面后发现直接输入新密码就可以更改，不用之前的密码，也许可以scrf，使用burp suite抓包<br><img src="https://s2.ax1x.com/2019/03/25/AtbSl4.jpg" alt="AtbSl4.jpg" border="0"><br>抓包后，使用burp的自动生成csrf页面功能<br><img src="https://s2.ax1x.com/2019/03/25/AtbepD.jpg" alt="AtbepD.jpg" border="0"><br>对应新密码和确认新密码，改成两个一样的密码，我都改成111，然后打开这个html页面<br><img src="https://s2.ax1x.com/2019/03/25/AtqS4f.jpg" alt="AtqS4f.jpg" border="0"><br>打开之后，就是点击submit，因为用户本身有session，不需要验证，进入页面，就直接将表单提交到了更改密码的网页。然后，就没有然后了，你号就没了。<br><img src="https://s2.ax1x.com/2019/03/25/AtqK8U.jpg" alt="AtqK8U.jpg" border="0"><br>代码分析：可以看到，服务器收到修改密码的请求后，会检查参数password_new与password_conf是否相同，如果相同，就会修改密码，并没有任何的防CSRF机制（当然服务器对请求的发送者是做了身份验证的，是检查的cookie，只是这里的代码没有体现= =）。</p>
-<h2 id="medium级别"><a href="#medium级别" class="headerlink" title="medium级别"></a><em>medium级别</em></h2><p><img src="https://s2.ax1x.com/2019/03/25/Atq6at.jpg" alt="Atq6at.jpg" border="0"><br>算了，直接看代码吧。。。<br>代码分析：int eregi(string pattern, string string)<br>检查string中是否含有pattern（不区分大小写），如果有返回True，反之False。<br>可以看到，Medium级别的代码检查了保留变量 HTTP_REFERER（http包头的Referer参数的值，表示来源地址）中是否包含SERVER_NAME（http包头的Host参数，及要访问的主机名，这里是192.168.177.133），希望通过这种机制抵御CSRF攻击。<br>检查是否是本机发送的请求<br><img src="https://s2.ax1x.com/2019/03/25/AtLFJK.jpg" alt="AtLFJK.jpg" border="0"><br>我们可以也通过burp将refer值更改成</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><em>前言</em></h1><p>感觉自己应该改变方式，博客应该尽量简短，实在，有效，每个像以前一样都从基础说起，太浪费时间和篇幅了。<br><a href="https://www.cnblogs.com/Kevin-1967/p/7762661.html" target="_blank">这位大佬讲的很好，我也借鉴了很多</a></p>
+<h1 id="intruder-闯入者-四种方式"><a href="#intruder-闯入者-四种方式" class="headerlink" title="intruder(闯入者)四种方式"></a><em>intruder(闯入者)四种方式</em></h1><p><ul>Sniper</ul></p>
+<p><ul>Battering Ram</ul></p>
+<p><ul>Pitchfork</ul></p>
+<p><ul>Cluster Bomb</ul><br><img src="https://s2.ax1x.com/2019/04/01/AyeArq.jpg" alt="AyeArq.jpg" border="0"></p>
+<h1 id="第一种Sniper"><a href="#第一种Sniper" class="headerlink" title="第一种Sniper"></a><em>第一种Sniper</em></h1><p>简单来说 只有1个字典也就是payload set只能选择1<br>但是可以选择多个要爆破的对象<br>加载顺序：将字典<em>依次</em>填入所有变量中，下图设置了两个变量，所以Position会有两个，先将字典全部填入第一个变量，再第二个变量<br><img src="https://s2.ax1x.com/2019/04/01/AyeRJg.jpg" alt="AyeRJg.jpg" border="0"></p>
+<h1 id="第二种Battering-ram"><a href="#第二种Battering-ram" class="headerlink" title="第二种Battering ram"></a><em>第二种Battering ram</em></h1><p>也只能有一个字典 payload set 只有1<br>也可以选择多个要爆破的对象<br>和上一个区别在于 加载顺序：<em>同时</em>将字典填入所有变量<br><img src="https://s2.ax1x.com/2019/04/02/A6ON8O.jpg" alt="A6ON8O.jpg" border="0"></p>
+<h1 id="第三种Pitch-fork"><a href="#第三种Pitch-fork" class="headerlink" title="第三种Pitch fork"></a><em>第三种Pitch fork</em></h1><p>N个字典 就是payload set可以选择N个<br>爆破对象数量：N个【需要和字段数量相同】<br>加载顺序：字典和变量分别对应，同时填入对应变量中，下图设置了两个变量，变量1<em>依次</em>被填入了user1，user2，user3，变量2<em>依次</em>被填入了pass1，pass2，pass3，user字典和pass字典一一对应<br><img src="https://s2.ax1x.com/2019/04/02/A6zy36.jpg" alt="A6zy36.jpg" border="0"><br><img src="https://s2.ax1x.com/2019/04/02/A6zRDe.jpg" alt="A6zRDe.jpg" border="0"></p>
+<h1 id="第四种Cluster-bomb"><a href="#第四种Cluster-bomb" class="headerlink" title="第四种Cluster bomb"></a><em>第四种Cluster bomb</em></h1><p>N个字典 payload set 可以选择N个<br>爆破变量 N个<br>加载顺序：字典和变量分别对应，分别填入对应变量中，下图设置了两个变量，变量1依次被填入了user1，user2，user3 变量2首先被填入了pass1，然后是pass2，最后是pass3，user字典和pass字典分别对应，爆破的次数是 user字典数 X pass字段数<br><img src="https://s2.ax1x.com/2019/04/02/AcSiKU.jpg" alt="AcSiKU.jpg" border="0"></p>
+<h1 id="最后一种的展示"><a href="#最后一种的展示" class="headerlink" title="最后一种的展示"></a><em>最后一种的展示</em></h1><p><a href="http://ctf5.shiyanbar.com/web/index_3.php?id=" target="_blank" rel="noopener">百度实验吧展示sql注入</a><br>sql语句<br>1’and ascii(substr(select flag from flag),1,1)= 110#<br>选择第四种方式爆破<br><img src="https://s2.ax1x.com/2019/04/02/AcSbJ1.jpg" alt="AcSbJ1.jpg" border="0"><br>第一个payload<br><img src="https://s2.ax1x.com/2019/04/02/AcSjsO.jpg" alt="AcSjsO.jpg" border="0"><br>第二个payload<br><img src="https://s2.ax1x.com/2019/04/02/AcpmwQ.jpg" alt="AcpmwQ.jpg" border="0"><br>现在已经爆出来一些值了<br><img src="https://s2.ax1x.com/2019/04/02/Ac9unO.jpg" alt="Ac9unO.jpg" border="0"><br>爆出来的是ascii码 再用burp解码功能解出答案，不能直接爆字段 因为Windows区分大小写而Linux不区分<br>答案：flag{Y0u_@r3_5O_damn90Od}</p>
 
       
     </div>
@@ -350,8 +354,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/19/dvwa/" rel="next" title="dvwa之Command Execution(命令执行)">
-                <i class="fa fa-chevron-left"></i> dvwa之Command Execution(命令执行)
+              <a href="/2019/03/30/sql语句-MySQL/" rel="next" title="sql(MySQL为例)">
+                <i class="fa fa-chevron-left"></i> sql(MySQL为例)
               </a>
             
           </div>
@@ -359,10 +363,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/23/dvwa之xxs-跨站脚本攻击/" rel="prev" title="dvwa之xxs(跨站脚本攻击)">
-                dvwa之xxs(跨站脚本攻击) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -483,7 +483,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#csrf的介绍"><span class="nav-number">1.</span> <span class="nav-text">csrf的介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#csrf的定义"><span class="nav-number">1.1.</span> <span class="nav-text">csrf的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#csrf的防御"><span class="nav-number">1.2.</span> <span class="nav-text">csrf的防御</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dvwa之csrf"><span class="nav-number">2.</span> <span class="nav-text">dvwa之csrf</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#low级别"><span class="nav-number">2.1.</span> <span class="nav-text">low级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#medium级别"><span class="nav-number">2.2.</span> <span class="nav-text">medium级别</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#intruder-闯入者-四种方式"><span class="nav-number">2.</span> <span class="nav-text">intruder(闯入者)四种方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一种Sniper"><span class="nav-number">3.</span> <span class="nav-text">第一种Sniper</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二种Battering-ram"><span class="nav-number">4.</span> <span class="nav-text">第二种Battering ram</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三种Pitch-fork"><span class="nav-number">5.</span> <span class="nav-text">第三种Pitch fork</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四种Cluster-bomb"><span class="nav-number">6.</span> <span class="nav-text">第四种Cluster bomb</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后一种的展示"><span class="nav-number">7.</span> <span class="nav-text">最后一种的展示</span></a></li></ol></div>
             
 
           </div>
