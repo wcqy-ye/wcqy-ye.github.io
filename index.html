@@ -420,18 +420,24 @@
       
         
           
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><em>前言</em></h1><p>感觉自己应该改变方式，博客应该尽量简短，实在，有效，每个像以前一样都从基础说起，太浪费时间和篇幅了。<br><a href="https://www.cnblogs.com/Kevin-1967/p/7762661.html" target="_blank">这位大佬讲的很好，我也借鉴了很多</a></p>
-<h1 id="intruder-闯入者-四种方式"><a href="#intruder-闯入者-四种方式" class="headerlink" title="intruder(闯入者)四种方式"></a><em>intruder(闯入者)四种方式</em></h1><p><ul>Sniper</ul></p>
-<p><ul>Battering Ram</ul></p>
-<p><ul>Pitchfork</ul></p>
-<p><ul>Cluster Bomb</ul><br><img src="https://s2.ax1x.com/2019/04/01/AyeArq.jpg" alt="AyeArq.jpg" border="0"></p>
-<h1 id="第一种Sniper"><a href="#第一种Sniper" class="headerlink" title="第一种Sniper"></a><em>第一种Sniper</em></h1><p>简单来说 只有1个字典也就是payload set只能选择1<br>但是可以选择多个要爆破的对象<br>加载顺序：将字典<em>依次</em>填入所有变量中，下图设置了两个变量，所以Position会有两个，先将字典全部填入第一个变量，再第二个变量<br><img src="https://s2.ax1x.com/2019/04/01/AyeRJg.jpg" alt="AyeRJg.jpg" border="0"></p>
-<h1 id="第二种Battering-ram"><a href="#第二种Battering-ram" class="headerlink" title="第二种Battering ram"></a><em>第二种Battering ram</em></h1><p>也只能有一个字典 payload set 只有1<br>也可以选择多个要爆破的对象<br>和上一个区别在于 加载顺序：<em>同时</em>将字典填入所有变量<br><img src="https://s2.ax1x.com/2019/04/02/A6ON8O.jpg" alt="A6ON8O.jpg" border="0"></p>
-<h1 id="第三种Pitch-fork"><a href="#第三种Pitch-fork" class="headerlink" title="第三种Pitch fork"></a><em>第三种Pitch fork</em></h1><p>N个字典 就是payload set可以选择N个<br>爆破对象数量：N个【需要和字段数量相同】<br>加载顺序：字典和变量分别对应，同时填入对应变量中，下图设置了两个变量，变量1<em>依次</em>被填入了user1，user2，user3，变量2<em>依次</em>被填入了pass1，pass2，pass3，user字典和pass字典一一对应<br><img src="https://s2.ax1x.com/2019/04/02/A6zy36.jpg" alt="A6zy36.jpg" border="0"><br><img src="https://s2.ax1x.com/2019/04/02/A6zRDe.jpg" alt="A6zRDe.jpg" border="0"></p>
-<h1 id="第四种Cluster-bomb"><a href="#第四种Cluster-bomb" class="headerlink" title="第四种Cluster bomb"></a><em>第四种Cluster bomb</em></h1><p>N个字典 payload set 可以选择N个<br>爆破变量 N个<br>加载顺序：字典和变量分别对应，分别填入对应变量中，下图设置了两个变量，变量1依次被填入了user1，user2，user3 变量2首先被填入了pass1，然后是pass2，最后是pass3，user字典和pass字典分别对应，爆破的次数是 user字典数 X pass字段数<br><img src="https://s2.ax1x.com/2019/04/02/AcSiKU.jpg" alt="AcSiKU.jpg" border="0"></p>
-<h1 id="最后一种的展示"><a href="#最后一种的展示" class="headerlink" title="最后一种的展示"></a><em>最后一种的展示</em></h1><p><a href="http://ctf5.shiyanbar.com/web/index_3.php?id=" target="_blank" rel="noopener">百度实验吧展示sql注入</a><br>sql语句<br>1’and ascii(substr(select flag from flag),1,1)= 110#<br>选择第四种方式爆破<br><img src="https://s2.ax1x.com/2019/04/02/AcSbJ1.jpg" alt="AcSbJ1.jpg" border="0"><br>第一个payload<br><img src="https://s2.ax1x.com/2019/04/02/AcSjsO.jpg" alt="AcSjsO.jpg" border="0"><br>第二个payload<br><img src="https://s2.ax1x.com/2019/04/02/AcpmwQ.jpg" alt="AcpmwQ.jpg" border="0"><br>现在已经爆出来一些值了<br><img src="https://s2.ax1x.com/2019/04/02/Ac9unO.jpg" alt="Ac9unO.jpg" border="0"><br>爆出来的是ascii码 再用burp解码功能解出答案，不能直接爆字段 因为Windows区分大小写而Linux不区分<br>答案：flag{Y0u_@r3_5O_damn90Od}</p>
-
+            <p>
+              前言感觉自己应该改变方式，博客应该尽量简短，实在，有效，每个像以前一样都从基础说起，太浪费时间和篇幅了。这位大佬讲的很好，我也借鉴了很多
+intruder(闯入者)四种方式Sniper
+Battering Ram
+Pitchfork
+Cluster Bomb
+第一种Sniper简单来说 只有1个字典
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/01/burp-suite-intruder爆破方式/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -572,19 +578,20 @@
       
         
           
-            <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a><em>开头</em></h1><p>感觉自己经常忘记sql语句和一些基本知识，记了又忘，忘了又记，因此写下来，方便以后自己查看。(我好菜啊！！！！)，<br>另外如果大家想要学习sql的话，推荐廖雪峰大神的教程<br><a href="https://www.liaoxuefeng.com/wiki/001508284671805d39d23243d884b8b99f440bfae87b0f4000" target="_blank">链接</a><br><img src="https://s2.ax1x.com/2019/03/30/ABy2gs.jpg" alt="ABy2gs.jpg" border="0"></p>
-<h1 id="sql"><a href="#sql" class="headerlink" title="sql"></a><em>sql</em></h1><h2 id="sql简单的解释"><a href="#sql简单的解释" class="headerlink" title="sql简单的解释"></a><em>sql简单的解释</em></h2><p>SQL全称是结构化查询语言(Structured Query Language):是一种特定目的编程语言，用于管理关系数据库管理系统（RDBMS），或在关系流数据管理系统（RDSMS）中进行流处理。</p>
-<h2 id="sql注入"><a href="#sql注入" class="headerlink" title="sql注入"></a><em>sql注入</em></h2><p>强调：sql注入的危害很大<br>由于SQL指令在部分高级使用时，语法会依照特定条件来变换，而且若是表格中的字段过多时，许多开发人员都会习惯以字符串组立的方式创建SQL指令，而且又使用系统管理员级的账户连到数据库，因此让黑客有机会利用SQL的组立方式进行攻击，像是在指令中添加部分刺探性或破坏性的指令（例如DROP TABLE、DROP DATABASE或是DELETE * FROM myTable等具破坏性的指令），让数据库的数据或实体服务器被破坏，导致服务中断或是系统瘫痪等后果，或是以逻辑的漏洞，在密码栏写入特殊字符串(例如’ or ‘1’=’1)，让该字符串形成的逻辑判断永远为真，或直接获取非查询条件的数据，而不需要知道密码，以达成非法登录系统的目的，此种攻击手法称为SQL注入（SQL injection）。</p>
-<h2 id="sql的种类"><a href="#sql的种类" class="headerlink" title="sql的种类"></a><em>sql的种类</em></h2><p>sql数据库通常分为层次式数据库、网络式数据库和关系式数据库三种。而不同的数据库是按不同的数据结构来联系和组织的。<br>除此之外，现如今用的比较多的还有非关系型数据库(NoSQL),注意是not only sql 不是 no,sql。也就是说NoSQL更多是对于关系型数据库的补充而不是竞争。NoSql数据库在特定的场景下可以发挥出难以想象的高效率和高性能。但是非关系型数据库缺陷是没有关系型数据库那么稳定安全。<br>我在这里主要说的是关系型数据库。<br>关系数据库，是建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据。现实世界中的各种实体以及实体之间的各种联系均用关系模型来表示。关系模型是由埃德加·科德于1970年首先提出的，并配合“科德十二定律”。现如今虽然对此模型有一些批评意见，但它还是数据存储的传统标准。标准数据查询语言SQL就是一种基于关系数据库的语言，这种语言执行对关系数据库中数据的检索和操作。 关系模型由关系数据结构、关系操作集合、关系完整性约束三部分组成。<br>简单说，关系型数据库是由多张能互相联接的二维行列表格组成的数据库。<br>我自己的理解就是靠一张张的表格形成数据之间的联系。</p>
-<h2 id="所有sql数据库的大名鼎鼎的四大特性"><a href="#所有sql数据库的大名鼎鼎的四大特性" class="headerlink" title="所有sql数据库的大名鼎鼎的四大特性"></a><em>所有sql数据库的大名鼎鼎的四大特性</em></h2><p>解释的很好的链接<br><a href="https://blog.csdn.net/zuoyixiao/article/details/78458093" target="_blank">链接</a></p>
-<h3 id="1-原子性（Atomicity）"><a href="#1-原子性（Atomicity）" class="headerlink" title="1.原子性（Atomicity）"></a><em>1.原子性（Atomicity）</em></h3><p>原子性是指事务包含的所有操作要么全部成功，要么全部失败回滚，因此事务的操作如果成功就必须要完全应用到数据库，如果操作失败则不能对数据库有任何影响。<br>我曾经看到的一个很好的解释原子性的说法：在很久以前，大家认为原子是最小的东西，不可分割，不可能存在半个原子，因此，原子性就是数据库事务要么全部成功，要么全部失败，不能只做一半。</p>
-<h3 id="2-一致性（Consistency）"><a href="#2-一致性（Consistency）" class="headerlink" title="2.一致性（Consistency）"></a><em>2.一致性（Consistency）</em></h3><p>一致性是指事务必须使数据库从一个一致性状态变换到另一个一致性状态，也就是说一个事务执行之前和执行之后都必须处于一致性状态。<br>拿转账来说，假设用户A和用户B两者的钱加起来一共是5000，那么不管A和B之间如何转账，转几次账，事务结束后两个用户的钱相加起来应该还得是5000，这就是事务的一致性。</p>
-<h3 id="3-隔离性（Isolation）"><a href="#3-隔离性（Isolation）" class="headerlink" title="3.隔离性（Isolation）"></a><em>3.隔离性（Isolation）</em></h3><p>　　隔离性是当多个用户并发访问数据库时，比如操作同一张表时，数据库为每一个用户开启的事务，不能被其他事务的操作所干扰，多个并发事务之间要相互隔离。<br>　　即要达到这么一种效果：对于任意两个并发的事务T1和T2，在事务T1看来，T2要么在T1开始之前就已经结束，要么在T1结束之后才开始，这样每个事务都感觉不到有其他事务在并发地执行。</p>
-<h3 id="4-持久性（Durability）"><a href="#4-持久性（Durability）" class="headerlink" title="4.持久性（Durability）"></a><em>4.持久性（Durability）</em></h3><p>　　持久性是指一个事务一旦被提交了，那么对数据库中的数据的改变就是永久性的，即便是在数据库系统遇到故障的情况下也不会丢失提交事务的操作。<br>　　例如我们在使用JDBC操作数据库时，在提交事务方法后，提示用户事务操作完成，当我们程序执行完成直到看到提示后，就可以认定事务以及正确提交，即使这时候数据库出现了问题，也必须要将我们的事务完全执行完成，否则就会造成我们看到提示事务处理完毕，但是数据库因为故障而没有执行事务的重大错误。</p>
-<h1 id="sql-数据库及表的创建和删除"><a href="#sql-数据库及表的创建和删除" class="headerlink" title="sql 数据库及表的创建和删除"></a><em>sql 数据库及表的创建和删除</em></h1><p>mysql 连接<br>mysql -u 账号 -p(我的是root)，接下来输入密码就好<br><img src="https://s2.ax1x.com/2019/03/30/ABL9gI.jpg" alt="ABL9gI.jpg" border="0"><br>show databases;显示数据库<br><img src="https://s2.ax1x.com/2019/03/30/ABLtPJ.jpg" alt="ABLtPJ.jpg" border="0"><br>create database 库名;创建数据库<br>drop database 库名;删除数据库<br><img src="https://s2.ax1x.com/2019/03/30/ABLNG9.jpg" alt="ABLNG9.jpg" border="0"><br><img src="https://s2.ax1x.com/2019/03/30/ABOAQ1.jpg" alt="ABOAQ1.jpg" border="0"></p>
-<p><a href="https://blog.csdn.net/qq_30364955/article/details/80007060" target="_blank" rel="noopener">mysql 建表操作</a><br>建表太多了，我就不一一展示。</p>
-<h1 id="sql语句操作"><a href="#sql语句操作" class="headerlink" title="sql语句操作"></a><em>sql语句操作</em></h1><h2 id="增"><a href="#增" class="headerlink" title="增"></a><em>增</em></h2>
+            <p>
+              开头感觉自己经常忘记sql语句和一些基本知识，记了又忘，忘了又记，因此写下来，方便以后自己查看。(我好菜啊！！！！)，另外如果大家想要学习sql的话，推荐廖雪峰大神的教程链接
+sqlsql简单的解释SQL全称是结构化查询语言(Structured Query Language):是一种特定目的编程语
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/30/sql语句-MySQL/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -721,8 +728,19 @@
       
         
           
-            
+            <p>
+              
+              
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/24/爬虫学习一/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -875,20 +893,19 @@
       
         
           
-            <h1 id="xss的介绍"><a href="#xss的介绍" class="headerlink" title="xss的介绍"></a><em>xss的介绍</em></h1><h2 id="xss的定义"><a href="#xss的定义" class="headerlink" title="xss的定义"></a><em>xss的定义</em></h2><p>跨站脚本（英语：Cross-site scripting，通常简称为：XSS）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。它允许恶意用户将代码注入到网页上，其他用户在观看网页时就会受到影响。这类攻击通常包含了HTML以及用户端脚本语言。<br>XSS攻击通常指的是通过利用网页开发时留下的漏洞，通过巧妙的方法注入恶意指令代码到网页，使用户加载并执行攻击者恶意制造的网页程序。这些恶意网页程序通常是JavaScript，但实际上也可以包括Java，VBScript，ActiveX，Flash或者甚至是普通的HTML。攻击成功后，攻击者可能得到更高的权限（如执行一些操作）、私密网页内容、会话和cookie等各种内容。(维基百科)</p>
-<h2 id="xss的意义"><a href="#xss的意义" class="headerlink" title="xss的意义"></a><em>xss的意义</em></h2><p><img src="https://s2.ax1x.com/2019/03/23/AGQEDA.jpg" alt="AGQEDA.jpg" border="0"></p>
-<h2 id="xss的危害"><a href="#xss的危害" class="headerlink" title="xss的危害"></a><em>xss的危害</em></h2><p><img src="https://s2.ax1x.com/2019/03/23/AGQcUx.jpg" alt="AGQcUx.jpg" border="0"></p>
-<h2 id="xss攻击分类"><a href="#xss攻击分类" class="headerlink" title="xss攻击分类"></a><em>xss攻击分类</em></h2><p>反射型xss<br><img src="https://s2.ax1x.com/2019/03/23/AGtrAH.jpg" alt="AGtrAH.jpg" border="0"><br>储存型xss<br><img src="https://s2.ax1x.com/2019/03/23/AGNlxP.jpg" alt="AGNlxP.jpg" border="0"><br>DOM型xss<br><img src="https://s2.ax1x.com/2019/03/23/AGNigx.jpg" alt="AGNigx.jpg" border="0"></p>
-<h2 id="xss的一些攻击代码"><a href="#xss的一些攻击代码" class="headerlink" title="xss的一些攻击代码"></a><em>xss的一些攻击代码</em></h2><p><img src="https://s2.ax1x.com/2019/03/23/AG64bR.jpg" alt="AG64bR.jpg" border="0"></p>
-<h1 id="reflect-xss-反射型xss"><a href="#reflect-xss-反射型xss" class="headerlink" title="reflect xss(反射型xss)"></a><em>reflect xss(反射型xss)</em></h1><h2 id="low级别"><a href="#low级别" class="headerlink" title="low级别"></a><em>low级别</em></h2><p>首先可以看到没有对提交的信息进行过滤，直接插入代码中，连&gt;也没有进行处理，想到如果输入js代码是不是也会直接插入<br><img src="https://s2.ax1x.com/2019/03/23/AGrKjs.jpg" alt="AGrKjs.jpg" border="0"></p>
-<p>试试输入 &lt; s cript&gt;alert(‘xss’)&lt;/ s cript&gt;其实是没有空格的。。。转义的原因。<br>可以看见发生弹窗 xss<br><img src="https://s2.ax1x.com/2019/03/23/AGrsUK.jpg" alt="AGrsUK.jpg" border="0"><br>源代码<br><img src="https://s2.ax1x.com/2019/03/23/AGWmXF.jpg" alt="AGWmXF.jpg" border="0"><br>代码分析：没有过滤，直接将name连接到页面上的html语言内</p>
-<h2 id="Medium级别"><a href="#Medium级别" class="headerlink" title="Medium级别"></a><em>Medium级别</em></h2><p>同样先&lt; s cript&gt;alert(‘xss’)&lt;/ s cript&gt;（注意不要用空格）试试，发现不行，并且没有原样插入html代码<br><img src="https://s2.ax1x.com/2019/03/23/AGfp36.jpg" alt="AGfp36.jpg" border="0"><br>想到过滤了，并且alert函数没被过滤，想到可能只对script过滤了？<br>因为html不区分大小写，试试用大写的script<br><img src="https://s2.ax1x.com/2019/03/23/AGfhrD.jpg" alt="AGfhrD.jpg" border="0"><br>成功弹窗！<br><img src="https://s2.ax1x.com/2019/03/23/AGf4qe.jpg" alt="AGf4qe.jpg" border="0"><br>源代码<br><img src="https://s2.ax1x.com/2019/03/23/AGfLxf.jpg" alt="AGfLxf.jpg" border="0"><br>代码分析：将&lt; script&gt;用str_place函数删除<br>除了大写的方式<br>还可以通过script大小写混合<br>以及&lt; sc&lt; script&gt;ript&gt;alert(/xss/)&lt; /script&gt;双写绕过</p>
-<h2 id="高级别"><a href="#高级别" class="headerlink" title="高级别"></a><em>高级别</em></h2><p><img src="https://s2.ax1x.com/2019/03/23/AGfLxf.jpg" alt="AGfLxf.jpg" border="0"><br>代码分析：htmlspecialchars函数将所有html把预定义的字符&amp;、”、 ’、&lt;、&gt;转换为 HTML 实体，防止浏览器将其作为HTML元素。<br>绕不过。。。</p>
-<h1 id="stored-xss-存储型xss"><a href="#stored-xss-存储型xss" class="headerlink" title="stored xss(存储型xss)"></a><em>stored xss(存储型xss)</em></h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a><em>区别</em></h2><p>存储型和反射型区别在于存储型xss是一直存在的，比如评论之类的地方，所有人都能看见，危害很大</p>
-<h2 id="low级别-1"><a href="#low级别-1" class="headerlink" title="low级别"></a><em>low级别</em></h2><p>同样先是直接&lt; s cript&gt;alert(/xss/)&lt;/ s cript&gt;<br><img src="https://s2.ax1x.com/2019/03/23/AG40AJ.jpg" alt="AG40AJ.jpg" border="0"><br>成功，然后刷新页面试试，可以发现反射型不同，存储型再次弹窗。<br>name字段同样可以，前端限制了字数，直接F12改前端就好<br><img src="https://s2.ax1x.com/2019/03/23/AG54qU.jpg" alt="AG54qU.jpg" border="0"><br>源代码<br><img src="https://s2.ax1x.com/2019/03/23/AG4BN9.jpg" alt="AG4BN9.jpg" border="0"><br>代码分析：<br>trim(string,charlist)<br>函数移除字符串两侧的空白字符或其他预定义字符，预定义字符包括、\t、\n、\x0B、\r以及空格，可选参数charlist支持添加额外需要删除的字符。<br>mysql_real_escape_string(string,connection)<br>函数会对字符串中的特殊符号（\x00，\n，\r，\，‘，“，\x1a）进行转义。<br>stripslashes(string)<br>函数删除字符串中的反斜杠。<br>可以看到，对输入并没有做XSS方面的过滤与检查，且存储在数据库中，因此这里存在明显的存储型XSS漏洞。<br>源代码<br><img src="https://s2.ax1x.com/2019/03/23/AG5TIJ.jpg" alt="AG5TIJ.jpg" border="0"><br>同样用script大写就可以绕过<br>代码分析：strip_tags() 函数剥去字符串中的 HTML、XML 以及 PHP 的标签，但允许使用&lt; b&gt;标签。<br>addslashes() 函数返回在预定义字符（单引号、双引号、反斜杠、NULL）之前添加反斜杠的字符串。<br>可以看到，由于对message参数使用了htmlspecialchars函数进行编码，因此无法再通过message参数注入XSS代码，但是对于name参数，只是简单过滤了&lt; script&gt;字符串，仍然存在存储型的XSS。<br>同样用name字段script大写就可以绕过，记得前端改字数限制就行<br>以及双写和大小写混淆都可以</p>
-<h3 id="high级别"><a href="#high级别" class="headerlink" title="high级别"></a><em>high级别</em></h3><p><img src="https://s2.ax1x.com/2019/03/23/AGLunI.jpg" alt="AGLunI.jpg" border="0"><br>简单来说，name和message都是严格验证，绕不过。</p>
-
+            <p>
+              xss的介绍xss的定义跨站脚本（英语：Cross-site scripting，通常简称为：XSS）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。它允许恶意用户将代码注入到网页上，其他用户在观看网页时就会受到影响。这类攻击通常包含了HTML以及用户端脚本语言。XSS攻击通常指的是通过利用网页
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/23/dvwa之xxs-跨站脚本攻击/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1041,16 +1058,20 @@
       
         
           
-            <h1 id="csrf的介绍"><a href="#csrf的介绍" class="headerlink" title="csrf的介绍"></a><em>csrf的介绍</em></h1><p><img src="https://s2.ax1x.com/2019/03/25/AtIxrq.jpg" alt="AtIxrq.jpg" border="0"></p>
-<h2 id="csrf的定义"><a href="#csrf的定义" class="headerlink" title="csrf的定义"></a><em>csrf的定义</em></h2><p>跨站请求伪造（英语：Cross-site request forgery），也被称为 one-click attack 或者 session riding，通常缩写为 CSRF 或者 XSRF， 是一种挟制用户在当前已登录的Web应用程序上执行非本意的操作的攻击方法。[1] 跟跨网站脚本（XSS）相比，XSS 利用的是用户对指定网站的信任，CSRF 利用的是网站对用户网页浏览器的信任。(维基百科定义)</p>
-<h2 id="csrf的防御"><a href="#csrf的防御" class="headerlink" title="csrf的防御"></a><em>csrf的防御</em></h2><p>检查Referer字段<br>HTTP头中有一个Referer字段，这个字段用以标明请求来源于哪个地址。在处理敏感数据请求时，通常来说，Referer字段应和请求的地址位于同一域名下。以上文银行操作为例，Referer字段地址通常应该是转账按钮所在的网页地址，应该也位于 <a href="http://www.examplebank.com之下。而如果是CSRF攻击传来的请求，Referer字段会是包含恶意网址的地址，不会位于www.examplebank.com之下，这时候服务器就能识别出恶意的访问。" target="_blank" rel="noopener">www.examplebank.com之下。而如果是CSRF攻击传来的请求，Referer字段会是包含恶意网址的地址，不会位于www.examplebank.com之下，这时候服务器就能识别出恶意的访问。</a></p>
-<p>这种办法简单易行，工作量低，仅需要在关键访问处增加一步校验。但这种办法也有其局限性，因其完全依赖浏览器发送正确的Referer字段。虽然http协议对此字段的内容有明确的规定，但并无法保证来访的浏览器的具体实现，亦无法保证浏览器没有安全漏洞影响到此字段。并且也存在攻击者攻击某些浏览器，篡改其Referer字段的可能。</p>
-<p>添加校验token<br>由于CSRF的本质在于攻击者欺骗用户去访问自己设置的地址，所以如果要求在访问敏感数据请求时，要求用户浏览器提供不保存在cookie中，并且攻击者无法伪造的数据作为校验，那么攻击者就无法再运行CSRF攻击。这种数据通常是窗体中的一个数据项。服务器将其生成并附加在窗体中，其内容是一个伪随机数。当客户端通过窗体提交请求时，这个伪随机数也一并提交上去以供校验。正常的访问时，客户端浏览器能够正确得到并传回这个伪随机数，而通过CSRF传来的欺骗性攻击中，攻击者无从事先得知这个伪随机数的值，服务端就会因为校验token的值为空或者错误，拒绝这个可疑请求。</p>
-<h1 id="dvwa之csrf"><a href="#dvwa之csrf" class="headerlink" title="dvwa之csrf"></a><em>dvwa之csrf</em></h1><p>通过csrf来演示</p>
-<h2 id="low级别"><a href="#low级别" class="headerlink" title="low级别"></a><em>low级别</em></h2><p><img src="https://s2.ax1x.com/2019/03/25/Ato2wV.jpg" alt="Ato2wV.jpg" border="0"><br>思路：首先看到页面后发现直接输入新密码就可以更改，不用之前的密码，也许可以scrf，使用burp suite抓包<br><img src="https://s2.ax1x.com/2019/03/25/AtbSl4.jpg" alt="AtbSl4.jpg" border="0"><br>抓包后，使用burp的自动生成csrf页面功能<br><img src="https://s2.ax1x.com/2019/03/25/AtbepD.jpg" alt="AtbepD.jpg" border="0"><br>对应新密码和确认新密码，改成两个一样的密码，我都改成111，然后打开这个html页面<br><img src="https://s2.ax1x.com/2019/03/25/AtqS4f.jpg" alt="AtqS4f.jpg" border="0"><br>打开之后，就是点击submit，因为用户本身有session，不需要验证，进入页面，就直接将表单提交到了更改密码的网页。然后，就没有然后了，你号就没了。<br><img src="https://s2.ax1x.com/2019/03/25/AtqK8U.jpg" alt="AtqK8U.jpg" border="0"><br>代码分析：可以看到，服务器收到修改密码的请求后，会检查参数password_new与password_conf是否相同，如果相同，就会修改密码，并没有任何的防CSRF机制（当然服务器对请求的发送者是做了身份验证的，是检查的cookie，只是这里的代码没有体现= =）。</p>
-<h2 id="medium级别"><a href="#medium级别" class="headerlink" title="medium级别"></a><em>medium级别</em></h2><p><img src="https://s2.ax1x.com/2019/03/25/Atq6at.jpg" alt="Atq6at.jpg" border="0"><br>算了，直接看代码吧。。。<br>代码分析：int eregi(string pattern, string string)<br>检查string中是否含有pattern（不区分大小写），如果有返回True，反之False。<br>可以看到，Medium级别的代码检查了保留变量 HTTP_REFERER（http包头的Referer参数的值，表示来源地址）中是否包含SERVER_NAME（http包头的Host参数，及要访问的主机名，这里是192.168.177.133），希望通过这种机制抵御CSRF攻击。<br>检查是否是本机发送的请求<br><img src="https://s2.ax1x.com/2019/03/25/AtLFJK.jpg" alt="AtLFJK.jpg" border="0"><br>我们可以也通过burp将refer值更改成</p>
-
+            <p>
+              csrf的介绍
+csrf的定义跨站请求伪造（英语：Cross-site request forgery），也被称为 one-click attack 或者 session riding，通常缩写为 CSRF 或者 XSRF， 是一种挟制用户在当前已登录的Web应用程序上执行非本意的操作的攻击方法。[
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/22/dvwa之Command-csrf-跨站请求伪造/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1203,15 +1224,20 @@
       
         
           
-            <h1 id="命令执行的简单意义"><a href="#命令执行的简单意义" class="headerlink" title="命令执行的简单意义"></a><em>命令执行的简单意义</em></h1><p><img src="https://s2.ax1x.com/2019/03/20/Al4nSO.jpg" alt="Al4nSO.jpg" border="0"><br>命令注入（Command Injection），是指在某些需要输入数据的位置，还构造了恶意的代码破坏了原先的语句结构。而系统缺少有效的过滤，最终达到破坏数据、信息泄露甚至掌控电脑的目的。许多内容管理系统CMS存在命令注入漏洞。</p>
-<h1 id="注入命令思路"><a href="#注入命令思路" class="headerlink" title="注入命令思路"></a><em>注入命令思路</em></h1><p><img src="https://s2.ax1x.com/2019/03/21/A3QDvd.jpg" alt="A3QDvd.jpg" border="0"><br>注：命令执行的权限取决于存在漏洞的应用程序(网站的话也就是web中间件的权限)</p>
-<h1 id="常见的注入系统命令功能"><a href="#常见的注入系统命令功能" class="headerlink" title="常见的注入系统命令功能"></a><em>常见的注入系统命令功能</em></h1><p><img src="https://s2.ax1x.com/2019/03/21/A3QAjs.jpg" alt="A3QAjs.jpg" border="0"><br><img src="https://s2.ax1x.com/2019/03/21/A3QYHx.jpg" alt="A3QYHx.jpg" border="0"><br><img src="https://s2.ax1x.com/2019/03/22/A3fK3T.jpg" alt="A3fK3T.jpg" border="0"><br>    ping 测试网站连通性-本身是一般是网站用来给用户提供ip地址的<br>    netstat 查看网络端口及连接状态 netstat -pantu| grep :80 查看端口的占用情况<br>    net user 查看系统账号<br>    net localgroup 查看系统用户组<br>    dir 当前目录下的文件和子目录信息<br>    req 注册表<br>    tasklist 当前运行的进程信息<br>    查看ip ipconfig-windows ifconfig-Linux<br>    whoami 当前用户<br>    cat  查看文件<br>    ls 列出当前目录下的文件夹<br>    useradd 添加用户<br>    userdel 删除用户<br>    systeminfo 查看计算机综合信息<br>     “|”：前面命令输出结果作为后面命令的输入内容；<br>    “||”：前面命令执行失败的时候才执行后面的命令；<br>    “&amp;”：前面命令执行后接着执行后面的命令；<br>    “&amp;&amp;”：前面命令执行成功了才执行后面的命令。<br>在我自己电脑进行的模拟实验<br>ping 127.0.0.1 &amp; net user(忘记加ping了，不重要。。。，重要的是现在没有test用户)</p>
-<p><img src="https://s2.ax1x.com/2019/03/22/A3h1Rf.jpg" alt="A3h1Rf.jpg" border="0"></p>
-<p>ping 127.0.0.1 &amp; net user test 123 /add (执行后可以看见有了test用户密码123)<br><img src="https://s2.ax1x.com/2019/03/22/A3hiPx.jpg" alt="A3hiPx.jpg" border="0"></p>
-<p>ping 127.0.0.1 &amp; net localgroup adminstrators test /add (添加test用户到管理员组)<br>ping 127.0.0.1 &amp; net localgroup adminstrators (查看管理员组，可以看到已经添加了)<br><img src="https://s2.ax1x.com/2019/03/22/A3h4W6.jpg" alt="A3h4W6.jpg" border="0"></p>
-<h1 id="low级别"><a href="#low级别" class="headerlink" title="low级别"></a><em>low级别</em></h1><h2 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h2><p><img src="https://s2.ax1x.com/2019/03/21/A3MKld.jpg" alt="A3MKld.jpg" border="0"><br>isset() 判断提交方法<br>target 获得ip变量<br>stristr() 判断操作系统<br>问题：直接拼接ip变量到系统命令上</p>
-
+            <p>
+              命令执行的简单意义命令注入（Command Injection），是指在某些需要输入数据的位置，还构造了恶意的代码破坏了原先的语句结构。而系统缺少有效的过滤，最终达到破坏数据、信息泄露甚至掌控电脑的目的。许多内容管理系统CMS存在命令注入漏洞。
+注入命令思路注：命令执行的权限取决于存在漏洞的应用程序
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/19/dvwa/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1509,17 +1535,19 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+            <p>
+              Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/10/hello-world/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
