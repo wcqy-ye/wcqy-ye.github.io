@@ -96,27 +96,22 @@
 
 
 
-  <meta name="description" content="命令执行的简单意义命令注入（Command Injection），是指在某些需要输入数据的位置，还构造了恶意的代码破坏了原先的语句结构。而系统缺少有效的过滤，最终达到破坏数据、信息泄露甚至掌控电脑的目的。许多内容管理系统CMS存在命令注入漏洞。 注入命令思路注：命令执行的权限取决于存在漏洞的应用程序(网站的话也就是web中间件的权限) 常见的注入系统命令功能    ping 测试网站连通性-本身是">
+  <meta name="description" content="直接开始吧首先 这是zzz贴出来的爬虫模板,(手动滑稽). 可以借鉴一下. 简单说一下，爬虫基本都是分为四步  请求  解析  匹配 23可合并  保存内容 bs4的学习     然后我比较喜欢beautiful soup这个模块    贴一段代码 大家看看吧 都有注释 bs4的官网讲的也很详细    123456789101112131415161718192021222324252627282">
 <meta property="og:type" content="article">
-<meta property="og:title" content="dvwa之Command Execution(命令执行)">
-<meta property="og:url" content="http://yoursite.com/2019/03/19/dvwa/index.html">
+<meta property="og:title" content="爬虫的学习">
+<meta property="og:url" content="http://yoursite.com/2019/05/08/爬虫的学习/index.html">
 <meta property="og:site_name" content="wcqy-ye 的博客">
-<meta property="og:description" content="命令执行的简单意义命令注入（Command Injection），是指在某些需要输入数据的位置，还构造了恶意的代码破坏了原先的语句结构。而系统缺少有效的过滤，最终达到破坏数据、信息泄露甚至掌控电脑的目的。许多内容管理系统CMS存在命令注入漏洞。 注入命令思路注：命令执行的权限取决于存在漏洞的应用程序(网站的话也就是web中间件的权限) 常见的注入系统命令功能    ping 测试网站连通性-本身是">
+<meta property="og:description" content="直接开始吧首先 这是zzz贴出来的爬虫模板,(手动滑稽). 可以借鉴一下. 简单说一下，爬虫基本都是分为四步  请求  解析  匹配 23可合并  保存内容 bs4的学习     然后我比较喜欢beautiful soup这个模块    贴一段代码 大家看看吧 都有注释 bs4的官网讲的也很详细    123456789101112131415161718192021222324252627282">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/20/Al4nSO.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/21/A3QDvd.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/21/A3QAjs.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/21/A3QYHx.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/22/A3fK3T.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/22/A3h1Rf.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/22/A3hiPx.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/22/A3h4W6.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/21/A3MKld.jpg">
-<meta property="og:updated_time" content="2019-03-29T06:17:53.800Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/10/E2I8FH.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/10/E2IaOf.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/10/E25P5d.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/10/E2Iyfs.jpg">
+<meta property="og:updated_time" content="2019-05-10T03:24:55.871Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="dvwa之Command Execution(命令执行)">
-<meta name="twitter:description" content="命令执行的简单意义命令注入（Command Injection），是指在某些需要输入数据的位置，还构造了恶意的代码破坏了原先的语句结构。而系统缺少有效的过滤，最终达到破坏数据、信息泄露甚至掌控电脑的目的。许多内容管理系统CMS存在命令注入漏洞。 注入命令思路注：命令执行的权限取决于存在漏洞的应用程序(网站的话也就是web中间件的权限) 常见的注入系统命令功能    ping 测试网站连通性-本身是">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/03/20/Al4nSO.jpg">
+<meta name="twitter:title" content="爬虫的学习">
+<meta name="twitter:description" content="直接开始吧首先 这是zzz贴出来的爬虫模板,(手动滑稽). 可以借鉴一下. 简单说一下，爬虫基本都是分为四步  请求  解析  匹配 23可合并  保存内容 bs4的学习     然后我比较喜欢beautiful soup这个模块    贴一段代码 大家看看吧 都有注释 bs4的官网讲的也很详细    123456789101112131415161718192021222324252627282">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/05/10/E2I8FH.jpg">
 
 
 
@@ -124,7 +119,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/03/19/dvwa/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/08/爬虫的学习/">
 
 
 
@@ -134,7 +129,7 @@
   };
 </script>
 
-  <title>dvwa之Command Execution(命令执行) | wcqy-ye 的博客</title>
+  <title>爬虫的学习 | wcqy-ye 的博客</title>
   
 
 
@@ -332,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/19/dvwa/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/08/爬虫的学习/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wcqy-ye">
@@ -349,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">dvwa之Command Execution(命令执行)
+          <h1 class="post-title" itemprop="name headline">爬虫的学习
 
               
             
@@ -375,7 +370,7 @@
                 
               
 
-              <time title="Erstellt: 2019-03-19 19:05:06" itemprop="dateCreated datePublished" datetime="2019-03-19T19:05:06+08:00">2019-03-19</time>
+              <time title="Erstellt: 2019-05-08 21:18:40" itemprop="dateCreated datePublished" datetime="2019-05-08T21:18:40+08:00">2019-05-08</time>
             
 
             
@@ -392,7 +387,7 @@
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2019-03-29 14:17:53" itemprop="dateModified" datetime="2019-03-29T14:17:53+08:00">2019-03-29</time>
+                <time title="Geändert am: 2019-05-10 11:24:55" itemprop="dateModified" datetime="2019-05-10T11:24:55+08:00">2019-05-10</time>
               
             
           </span>
@@ -410,8 +405,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Kommentare: </span>
-                <a href="/2019/03/19/dvwa/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/03/19/dvwa/" itemprop="commentCount"></span>
+                <a href="/2019/05/08/爬虫的学习/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/05/08/爬虫的学习/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -439,13 +434,42 @@
       
 
       
-        <h1 id="命令执行的简单意义"><a href="#命令执行的简单意义" class="headerlink" title="命令执行的简单意义"></a><em>命令执行的简单意义</em></h1><p><img src="https://s2.ax1x.com/2019/03/20/Al4nSO.jpg" alt="Al4nSO.jpg" border="0"><br>命令注入（Command Injection），是指在某些需要输入数据的位置，还构造了恶意的代码破坏了原先的语句结构。而系统缺少有效的过滤，最终达到破坏数据、信息泄露甚至掌控电脑的目的。许多内容管理系统CMS存在命令注入漏洞。</p>
-<h1 id="注入命令思路"><a href="#注入命令思路" class="headerlink" title="注入命令思路"></a><em>注入命令思路</em></h1><p><img src="https://s2.ax1x.com/2019/03/21/A3QDvd.jpg" alt="A3QDvd.jpg" border="0"><br>注：命令执行的权限取决于存在漏洞的应用程序(网站的话也就是web中间件的权限)</p>
-<h1 id="常见的注入系统命令功能"><a href="#常见的注入系统命令功能" class="headerlink" title="常见的注入系统命令功能"></a><em>常见的注入系统命令功能</em></h1><p><img src="https://s2.ax1x.com/2019/03/21/A3QAjs.jpg" alt="A3QAjs.jpg" border="0"><br><img src="https://s2.ax1x.com/2019/03/21/A3QYHx.jpg" alt="A3QYHx.jpg" border="0"><br><img src="https://s2.ax1x.com/2019/03/22/A3fK3T.jpg" alt="A3fK3T.jpg" border="0"><br>    ping 测试网站连通性-本身是一般是网站用来给用户提供ip地址的<br>    netstat 查看网络端口及连接状态 netstat -pantu| grep :80 查看端口的占用情况<br>    net user 查看系统账号<br>    net localgroup 查看系统用户组<br>    dir 当前目录下的文件和子目录信息<br>    req 注册表<br>    tasklist 当前运行的进程信息<br>    查看ip ipconfig-windows ifconfig-Linux<br>    whoami 当前用户<br>    cat  查看文件<br>    ls 列出当前目录下的文件夹<br>    useradd 添加用户<br>    userdel 删除用户<br>    systeminfo 查看计算机综合信息<br>     “|”：前面命令输出结果作为后面命令的输入内容；<br>    “||”：前面命令执行失败的时候才执行后面的命令；<br>    “&amp;”：前面命令执行后接着执行后面的命令；<br>    “&amp;&amp;”：前面命令执行成功了才执行后面的命令。<br>在我自己电脑进行的模拟实验<br>ping 127.0.0.1 &amp; net user(忘记加ping了，不重要。。。，重要的是现在没有test用户)</p>
-<p><img src="https://s2.ax1x.com/2019/03/22/A3h1Rf.jpg" alt="A3h1Rf.jpg" border="0"></p>
-<p>ping 127.0.0.1 &amp; net user test 123 /add (执行后可以看见有了test用户密码123)<br><img src="https://s2.ax1x.com/2019/03/22/A3hiPx.jpg" alt="A3hiPx.jpg" border="0"></p>
-<p>ping 127.0.0.1 &amp; net localgroup adminstrators test /add (添加test用户到管理员组)<br>ping 127.0.0.1 &amp; net localgroup adminstrators (查看管理员组，可以看到已经添加了)<br><img src="https://s2.ax1x.com/2019/03/22/A3h4W6.jpg" alt="A3h4W6.jpg" border="0"></p>
-<h1 id="low级别"><a href="#low级别" class="headerlink" title="low级别"></a><em>low级别</em></h1><h2 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h2><p><img src="https://s2.ax1x.com/2019/03/21/A3MKld.jpg" alt="A3MKld.jpg" border="0"><br>isset() 判断提交方法<br>target 获得ip变量<br>stristr() 判断操作系统<br>问题：直接拼接ip变量到系统命令上</p>
+        <h2 id="直接开始吧"><a href="#直接开始吧" class="headerlink" title="直接开始吧"></a>直接开始吧</h2><p>首先 这是zzz贴出来的<a href="https://sakura-zzz.github.io/2019/03/11/%E7%88%AC%E8%99%AB%E6%A8%A1%E6%9D%BF/#more" target="_blank" rel="noopener">爬虫模板</a>,(手动滑稽).</p>
+<p>可以借鉴一下.</p>
+<p>简单说一下，爬虫基本都是分为四步</p>
+<ol>
+<li><p>请求</p>
+</li>
+<li><p>解析</p>
+</li>
+<li><p>匹配 23可合并</p>
+</li>
+<li><p>保存内容</p>
+<h2 id="bs4的学习"><a href="#bs4的学习" class="headerlink" title="bs4的学习"></a>bs4的学习</h2></li>
+</ol>
+<p>   然后我比较喜欢beautiful soup这个模块</p>
+<p>   贴一段代码 大家看看吧 都有注释 bs4的官网讲的也很详细</p>
+   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lxml</span><br><span class="line"><span class="comment">#1.转类型</span></span><br><span class="line">html_doc = <span class="string">"""</span></span><br><span class="line"><span class="string">&lt;html&gt;&lt;head&gt;&lt;title id ="one"&gt;The Dormouse's story&lt;/title&gt;&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">&lt;p class="title"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;p class="story"&gt;Once upon a time there were three little sisters; and their names were</span></span><br><span class="line"><span class="string">&lt;a href="http://example.com/elsie" class="sister" id="link1"&gt;Elsie&lt;/a&gt;,</span></span><br><span class="line"><span class="string">&lt;a href="http://example.com/lacie" class="sister" id="link2"&gt;Lacie&lt;/a&gt; and</span></span><br><span class="line"><span class="string">&lt;a href="http://example.com/tillie" class="sister" id="link3"&gt;Tillie&lt;/a&gt;;</span></span><br><span class="line"><span class="string">and they lived at the bottom of a well.&lt;/p&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;p class="story"&gt;...&lt;/p&gt;</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="comment">#1.转类型 bs4.Bautifulsoup</span></span><br><span class="line">soup = BeautifulSoup(html_doc,<span class="string">'lxml'</span>)</span><br><span class="line"><span class="comment">#2通用解析方法</span></span><br><span class="line"><span class="comment">#find--返回符合查询条件的第一个标签</span></span><br><span class="line">result = soup.find(name=<span class="string">"p"</span>)<span class="comment">#p标签</span></span><br><span class="line">result = soup.find(attrs=&#123;<span class="string">"class"</span>:<span class="string">"title"</span>&#125;)<span class="comment">#类名</span></span><br><span class="line">result = soup.find(text=<span class="string">"Tillie"</span>)</span><br><span class="line"><span class="comment">#find_all(返回标签对象)</span></span><br><span class="line">result =soup.find_all(<span class="string">'a'</span>)</span><br><span class="line">result = soup.find_all(<span class="string">'a'</span>, limit=<span class="number">1</span>)</span><br><span class="line">result = soup.find_all(attrs=&#123;<span class="string">"class"</span>:<span class="string">"sister"</span>&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#select_one--css选择器</span></span><br><span class="line">result = soup.select_one(<span class="string">'.sister'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#select--css选择器</span></span><br><span class="line">result =soup.select(<span class="string">'.sister'</span>)</span><br><span class="line">result = soup.select(<span class="string">"#one"</span>)</span><br><span class="line">result = soup.select(<span class="string">'head title'</span>)<span class="comment">#head标签下的后代title标签</span></span><br><span class="line">result = soup.select(<span class="string">'title,.title'</span>)<span class="comment">#title标签或者title类同时取出</span></span><br><span class="line">result = soup.select(<span class="string">'a[id="link3"]'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#标签包裹的内容--list</span></span><br><span class="line">result = soup.select(<span class="string">'.title'</span>)[<span class="number">0</span>].string</span><br><span class="line"></span><br><span class="line"><span class="comment">#标签的属性</span></span><br><span class="line"><span class="comment">#result = soup.select('#link3')[0].get('href')</span></span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+<h2 id="乞丐版"><a href="#乞丐版" class="headerlink" title="乞丐版"></a>乞丐版</h2><p>试试爬<a href="http://www.bbsnet.com/" target="_blank" rel="noopener">斗图网</a>，可以拿去和别人斗图啦 哈哈哈</p>
+<p>所用第三方模块 </p>
+<p>1.requests</p>
+<p>2.bs4</p>
+<p>3.lxml</p>
+<p>不多说，代码加直接注释。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="comment"># bs4 是真好用啊 真香 哈哈哈</span></span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">url = <span class="string">"http://www.bbsnet.com/tag/qq/page/"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(geturl)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">27</span>):</span><br><span class="line">        urls = geturl+str(x)   <span class="comment">#将每一个page参数加上</span></span><br><span class="line">        result = requests.get(url=urls).content   <span class="comment">#获取请求的内容</span></span><br><span class="line">        soup = BeautifulSoup(result, <span class="string">'lxml'</span>)    <span class="comment">#将获取的内容转换为soup的对象</span></span><br><span class="line">        result = soup.select(<span class="string">'.zoom img'</span>)   <span class="comment">#通过bs4自带的css选择方法 找到img标签</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> result:            <span class="comment">#   讲得到的那一页的img标签循环</span></span><br><span class="line">            print(i[<span class="string">'src'</span>])         <span class="comment">#获得打印图片的src</span></span><br><span class="line">            x = i[<span class="string">'src'</span>]            <span class="comment">#将src赋给x</span></span><br><span class="line">            image_name = x[<span class="number">-7</span>:]     <span class="comment">#给image取个名字 之后要用</span></span><br><span class="line">            print(image_name)</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                image = requests.get(x).content     <span class="comment">#通过url获取image的内容 注意是binary 二进制</span></span><br><span class="line">                <span class="comment">#print(image)</span></span><br><span class="line">                <span class="keyword">with</span> open(<span class="string">'%s'</span>%image_name, <span class="string">'wb'</span>) <span class="keyword">as</span> f:  <span class="comment">#开始写入文件 文件名就是刚刚那个</span></span><br><span class="line">                    f.write(image)</span><br><span class="line"></span><br><span class="line">                print(<span class="string">'ok\n'</span>)       <span class="comment">#写入成功 打印ok 换行</span></span><br><span class="line">            <span class="keyword">except</span>:             <span class="comment">#出了意外就下一个</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    run(geturl=url)</span><br></pre></td></tr></table></figure>
+<p>效果图：<img src="https://s2.ax1x.com/2019/05/10/E2I8FH.jpg" alt="E2I8FH.jpg" border="0"></p>
+<p><img src="https://s2.ax1x.com/2019/05/10/E2IaOf.jpg" alt="E2IaOf.jpg" border="0"></p>
+<h2 id="进阶版"><a href="#进阶版" class="headerlink" title="进阶版"></a>进阶版</h2><p>所用第三方模块 </p>
+<p>1.requests</p>
+<p>2.bs4</p>
+<p>3.lxml</p>
+<p>4.selenium</p>
+<p>比起刚刚那个加入一个selenium模块，可以去驱动浏览器，至于用这个东西驱动浏览器还需要一些其他的操作，百度一下吧，有很多的。</p>
+<p>这次爬<a href="https://www.qu.la/" target="_blank" rel="noopener">笔趣阁</a>，看小说的。。。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://www.xbiquge.la/10/10512/'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4541611</span>, <span class="number">17384875</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            browser = webdriver.Chrome()   <span class="comment">#初始化对象 浏览器是chrome</span></span><br><span class="line">            browser.get(url+str(i)+<span class="string">'.html'</span>)    <span class="comment">#请求页面        </span></span><br><span class="line">            soup = BeautifulSoup(browser.page_source,<span class="string">'lxml'</span>) <span class="comment">#转换为soup对象</span></span><br><span class="line">            print(soup) <span class="comment">#打印一下内容</span></span><br><span class="line">            result = soup.select(<span class="string">'div[id="content"]'</span>)   <span class="comment">#筛选一下内容</span></span><br><span class="line">            print(str(result).replace(<span class="string">'&lt;br/&gt;'</span>, <span class="string">''</span>))     <span class="comment">#因为有换行符 用字符串的replace方法去掉</span></span><br><span class="line">            <span class="keyword">with</span> open(str(i)+<span class="string">'.txt'</span>, <span class="string">'w'</span>, encoding=<span class="string">'utf-8'</span>)<span class="keyword">as</span> f:</span><br><span class="line">                f.write(str(result).replace(<span class="string">'&lt;br/&gt;'</span>, <span class="string">''</span>)) <span class="comment">#存入</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">finally</span>:</span><br><span class="line">            browser.close() <span class="comment">#关闭浏览器</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    run()</span><br></pre></td></tr></table></figure>
+<p>效果图：</p>
+<p><img src="https://s2.ax1x.com/2019/05/10/E25P5d.jpg" alt="E25P5d.jpg" border="0"></p>
+<p><img src="https://s2.ax1x.com/2019/05/10/E2Iyfs.jpg" alt="E2Iyfs.jpg" border="0"></p>
 
       
     </div>
@@ -476,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/15/hexo-blog-心路历程/" rel="next" title="hexo blog 心路历程">
-                <i class="fa fa-chevron-left"></i> hexo blog 心路历程
+              <a href="/2019/04/29/ssh协议登陆Linux远程桌面/" rel="next" title="ssh协议登陆Linux远程桌面">
+                <i class="fa fa-chevron-left"></i> ssh协议登陆Linux远程桌面
               </a>
             
           </div>
@@ -485,10 +509,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/22/dvwa之Command-csrf-跨站请求伪造/" rel="prev" title="dvwa之Command csrf(跨站请求伪造)">
-                dvwa之Command csrf(跨站请求伪造) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -632,7 +652,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#命令执行的简单意义"><span class="nav-number">1.</span> <span class="nav-text">命令执行的简单意义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注入命令思路"><span class="nav-number">2.</span> <span class="nav-text">注入命令思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见的注入系统命令功能"><span class="nav-number">3.</span> <span class="nav-text">常见的注入系统命令功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#low级别"><span class="nav-number">4.</span> <span class="nav-text">low级别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#源代码"><span class="nav-number">4.1.</span> <span class="nav-text">源代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#直接开始吧"><span class="nav-number">1.</span> <span class="nav-text">直接开始吧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bs4的学习"><span class="nav-number">2.</span> <span class="nav-text">bs4的学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#乞丐版"><span class="nav-number">3.</span> <span class="nav-text">乞丐版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶版"><span class="nav-number">4.</span> <span class="nav-text">进阶版</span></a></li></ol></div>
             
 
           </div>
