@@ -96,19 +96,24 @@
 
 
 
-  <meta name="description" content="开头ssh(secure shell)是用于远程登陆和信息交换的一种协议，除了ssh之外还有telent协议和http协议之类的，但是综合安全和传输速度方面来说，ssh更好，而之前买了腾讯云的服务器，一直在电脑上操作，突然想也可以在手机上操作，因此有了这篇博客，同时也是学习了一波到底ssh登陆的到底是怎样过程。  附上大佬文章 ssh登陆过程ssh登陆比较其他登陆方式更安全，是因为采用非对称加密算">
+  <meta name="description" content="ctf取证 一个压缩包，打开就这些，看到名字叫http的没有格式后缀的文件，想到可能是流量分析，因此可以直接使用wireshark进行分析，也可以因为这种完全没有后缀的文件直接扔进winhex里进行分析，都行。  两种方式打开之后就是这样，之后就很简单，全局搜索flag就行 wireshark：  packet bytes字节流，string字符串，搜索flag，看到十六进制里的50 4b代表是z">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ssh协议登陆Linux远程桌面">
-<meta property="og:url" content="http://yoursite.com/2019/04/29/ssh协议登陆Linux远程桌面/index.html">
+<meta property="og:title" content="wcqy-ye 的博客">
+<meta property="og:url" content="http://yoursite.com/2019/07/24/ctf取证/index.html">
 <meta property="og:site_name" content="wcqy-ye 的博客">
-<meta property="og:description" content="开头ssh(secure shell)是用于远程登陆和信息交换的一种协议，除了ssh之外还有telent协议和http协议之类的，但是综合安全和传输速度方面来说，ssh更好，而之前买了腾讯云的服务器，一直在电脑上操作，突然想也可以在手机上操作，因此有了这篇博客，同时也是学习了一波到底ssh登陆的到底是怎样过程。  附上大佬文章 ssh登陆过程ssh登陆比较其他登陆方式更安全，是因为采用非对称加密算">
+<meta property="og:description" content="ctf取证 一个压缩包，打开就这些，看到名字叫http的没有格式后缀的文件，想到可能是流量分析，因此可以直接使用wireshark进行分析，也可以因为这种完全没有后缀的文件直接扔进winhex里进行分析，都行。  两种方式打开之后就是这样，之后就很简单，全局搜索flag就行 wireshark：  packet bytes字节流，string字符串，搜索flag，看到十六进制里的50 4b代表是z">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s2.ax1x.com/2019/04/29/E32jBV.gif">
-<meta property="og:updated_time" content="2019-04-29T13:00:10.277Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/23/ekjlE4.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/24/eEfm24.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/24/eEfrIf.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/24/eEhZwt.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/24/eEhnFf.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/24/eEhB6J.jpg">
+<meta property="og:updated_time" content="2019-07-24T07:18:27.041Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ssh协议登陆Linux远程桌面">
-<meta name="twitter:description" content="开头ssh(secure shell)是用于远程登陆和信息交换的一种协议，除了ssh之外还有telent协议和http协议之类的，但是综合安全和传输速度方面来说，ssh更好，而之前买了腾讯云的服务器，一直在电脑上操作，突然想也可以在手机上操作，因此有了这篇博客，同时也是学习了一波到底ssh登陆的到底是怎样过程。  附上大佬文章 ssh登陆过程ssh登陆比较其他登陆方式更安全，是因为采用非对称加密算">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/29/E32jBV.gif">
+<meta name="twitter:title" content="wcqy-ye 的博客">
+<meta name="twitter:description" content="ctf取证 一个压缩包，打开就这些，看到名字叫http的没有格式后缀的文件，想到可能是流量分析，因此可以直接使用wireshark进行分析，也可以因为这种完全没有后缀的文件直接扔进winhex里进行分析，都行。  两种方式打开之后就是这样，之后就很简单，全局搜索flag就行 wireshark：  packet bytes字节流，string字符串，搜索flag，看到十六进制里的50 4b代表是z">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/23/ekjlE4.jpg">
 
 
 
@@ -116,7 +121,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/04/29/ssh协议登陆Linux远程桌面/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/24/ctf取证/">
 
 
 
@@ -126,7 +131,7 @@
   };
 </script>
 
-  <title>ssh协议登陆Linux远程桌面 | wcqy-ye 的博客</title>
+  <title> | wcqy-ye 的博客</title>
   
 
 
@@ -324,7 +329,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/ssh协议登陆Linux远程桌面/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/24/ctf取证/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wcqy-ye">
@@ -341,7 +346,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ssh协议登陆Linux远程桌面
+          <h1 class="post-title" itemprop="name headline">
 
               
             
@@ -367,13 +372,9 @@
                 
               
 
-              <time title="Erstellt: 2019-04-29 19:55:08 / Geändert am: 21:00:10" itemprop="dateCreated datePublished" datetime="2019-04-29T19:55:08+08:00">2019-04-29</time>
+              <time title="Erstellt: 2019-07-24 15:18:27" itemprop="dateCreated datePublished" datetime="2019-07-24T15:18:27+08:00">2019-07-24</time>
             
 
-            
-              
-
-              
             
           </span>
 
@@ -390,8 +391,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Kommentare: </span>
-                <a href="/2019/04/29/ssh协议登陆Linux远程桌面/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/04/29/ssh协议登陆Linux远程桌面/" itemprop="commentCount"></span>
+                <a href="/2019/07/24/ctf取证/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/07/24/ctf取证/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -419,32 +420,19 @@
       
 
       
-        <h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>ssh(secure shell)是用于远程登陆和信息交换的一种协议，除了ssh之外还有telent协议和http协议之类的，但是综合安全和传输速度方面来说，ssh更好，而之前买了腾讯云的服务器，一直在电脑上操作，突然想也可以在手机上操作，因此有了这篇博客，同时也是学习了一波到底ssh登陆的到底是怎样过程。</p>
-<p> <a href="http://www.cnblogs.com/joshua317/articles/4740881.html" target="_blank">附上大佬文章</a></p>
-<h1 id="ssh登陆过程"><a href="#ssh登陆过程" class="headerlink" title="ssh登陆过程"></a>ssh登陆过程</h1><p>ssh登陆比较其他登陆方式更安全，是因为采用非对称加密算法，生成公钥和私钥两种密钥，比不使用加密和对称加密更安全，很难通过公钥解密出私钥。但有可能会产生中间人攻击，黑客冒充服务器截获请求，用户如果不比对公钥是否正确，就连接，因为连接需要输入登陆密码，对于用户来说认为这是正常的服务器，就输出了自己的服务器密码，那黑客就得到了你的密码。</p>
-<p>具体登陆过程是这样的：</p>
-<p>（1）远程主机收到用户的登录请求，把自己的公钥发给用户。（2）用户使用这个公钥，将登录密码加密后，发送回来。（3）远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</p>
-<h1 id="正式操作"><a href="#正式操作" class="headerlink" title="正式操作"></a>正式操作</h1><h2 id="口令登陆"><a href="#口令登陆" class="headerlink" title="口令登陆"></a>口令登陆</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ssh user@host #user是你想要登陆的用户 host是服务器ip好像也可以用域名，我没试过</span><br><span class="line">　　The authenticity of host &apos;host (********)&apos; can&apos;t be established.</span><br><span class="line">　　RSA key fingerprint is 98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d.</span><br><span class="line">　　Are you sure you want to continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
-<p>一般来说yes吧。这段话的意思是，无法确认host主机的真实性，只知道它的公钥指纹，问你还想继续连接吗？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Are you sure you want to continue connecting (yes/no)? yes</span><br></pre></td></tr></table></figure>
-<p>接着yes</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Password: (enter password)</span><br></pre></td></tr></table></figure>
-<p>输入密码，对了就可以登陆了。</p>
-<p>当接受之后，服务器公钥就会被保存到$HOME/.ssh/known_hosts之中，下次登陆就不会警告了。</p>
-<p>但是我用的不是这种方式是下面这种。</p>
-<h2 id="公钥登陆"><a href="#公钥登陆" class="headerlink" title="公钥登陆"></a>公钥登陆</h2><p>可以不用每次输入密码。</p>
-<blockquote>
-<p>所谓”公钥登录”，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。引用的。。。</p>
-</blockquote>
-<p>必须提供自己的公钥，没有就用下面命令生成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　$ ssh-keygen</span><br></pre></td></tr></table></figure>
-<p>接下来就会一系列提示，一路通过就行，其中一个是是否对私钥设置口令（passphrase），我没用，担心私钥安全可以设置一个。</p>
-<p>结束后，$HOME/.ssh/目录下，会新生成两个文件：id_rsa.pub和id_rsa，前面一个公钥，后面是私钥。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-copy-id user@host #user和host之前说过了，这一句就是直接将公钥转送到服务器上</span><br></pre></td></tr></table></figure>
-<p>接下来就再用之前</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh user@host</span><br></pre></td></tr></table></figure>
-<p>这句就行了，如果还不行，去看看那位大佬文章吧。我太菜了。。。</p>
-<p><img src="https://s2.ax1x.com/2019/04/29/E32jBV.gif" alt="E32jBV.gif" border="0"></p>
+        <h1 id="ctf取证"><a href="#ctf取证" class="headerlink" title="ctf取证"></a>ctf取证</h1><p><img src="https://s2.ax1x.com/2019/07/23/ekjlE4.jpg" alt="ekjlE4.jpg" border="0"></p>
+<p>一个压缩包，打开就这些，看到名字叫http的没有格式后缀的文件，想到可能是流量分析，因此可以直接使用wireshark进行分析，也可以因为这种完全没有后缀的文件直接扔进winhex里进行分析，都行。</p>
+<p><img src="https://s2.ax1x.com/2019/07/24/eEfm24.jpg" alt="eEfm24.jpg" border="0"></p>
+<p>两种方式打开之后就是这样，之后就很简单，全局搜索flag就行</p>
+<p>wireshark：</p>
+<p><img src="https://s2.ax1x.com/2019/07/24/eEfrIf.jpg" alt="eEfrIf.jpg" border="0"></p>
+<p>packet bytes字节流，string字符串，搜索flag，看到十六进制里的50 4b代表是zip文件的开头，也就是字符串的pk。里面有个flag.txt应该就是这个。因此很显然，将原本http无后缀文件的格式变成，htttp.zip</p>
+<p>winhex:</p>
+<p><img src="https://s2.ax1x.com/2019/07/24/eEhZwt.jpg" alt="eEhZwt.jpg" border="0"></p>
+<p>搜索之后出现几个结果，同样的可以发现一样结果</p>
+<p><img src="https://s2.ax1x.com/2019/07/24/eEhnFf.jpg" alt="eEhnFf.jpg" border="0"></p>
+<p>最终结果：</p>
+<p><img src="https://s2.ax1x.com/2019/07/24/eEhB6J.jpg" alt="eEhB6J.jpg" border="0"></p>
 
       
     </div>
@@ -475,8 +463,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/18/git学习/" rel="next" title="git学习">
-                <i class="fa fa-chevron-left"></i> git学习
+              <a href="/2019/07/18/实验吧 Guess Next Session/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -485,8 +473,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/08/爬虫的学习/" rel="prev" title="爬虫的学习">
-                爬虫的学习 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/24/实验吧 听会歌吧/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -631,7 +619,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开头"><span class="nav-number">1.</span> <span class="nav-text">开头</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ssh登陆过程"><span class="nav-number">2.</span> <span class="nav-text">ssh登陆过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正式操作"><span class="nav-number">3.</span> <span class="nav-text">正式操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#口令登陆"><span class="nav-number">3.1.</span> <span class="nav-text">口令登陆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公钥登陆"><span class="nav-number">3.2.</span> <span class="nav-text">公钥登陆</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ctf取证"><span class="nav-number">1.</span> <span class="nav-text">ctf取证</span></a></li></ol></div>
             
 
           </div>

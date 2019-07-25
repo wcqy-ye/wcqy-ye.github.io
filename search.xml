@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2F2019%2F07%2F24%2F%E5%AE%9E%E9%AA%8C%E5%90%A7%20%E5%90%AC%E4%BC%9A%E6%AD%8C%E5%90%A7%2F</url>
+    <content type="text"><![CDATA[实验吧 听会歌吧 这题说是隐写但是实际是web 直接点两个连接，点不开 f12看源码 发现是get方式传参，而且参数感觉像是base64编码过的，自然想到解码。解码后发现就是歌曲名.mp3的base64编码。 之后想到现在这是一个下载页面，我们现在所知道的只有两首歌，和一个download.php页面，两首歌都下载不了，也就会想到是不是源码泄露，可以下载download.php的源码，试试，将download.php的base64编码过后放入get传参的url里 果然可以下载打开看看是什么（懒得打开解释器了。。。就直接改成txt看看吧） 这个php文件比较简单就不解释了，可以看到有个hereiskey.php看来flag应该就在里面了，一样步骤下载这个文件 就出来了flag]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2019%2F07%2F24%2Fctf%E5%8F%96%E8%AF%81%2F</url>
+    <content type="text"><![CDATA[ctf取证 一个压缩包，打开就这些，看到名字叫http的没有格式后缀的文件，想到可能是流量分析，因此可以直接使用wireshark进行分析，也可以因为这种完全没有后缀的文件直接扔进winhex里进行分析，都行。 两种方式打开之后就是这样，之后就很简单，全局搜索flag就行 wireshark： packet bytes字节流，string字符串，搜索flag，看到十六进制里的50 4b代表是zip文件的开头，也就是字符串的pk。里面有个flag.txt应该就是这个。因此很显然，将原本http无后缀文件的格式变成，htttp.zip winhex: 搜索之后出现几个结果，同样的可以发现一样结果 最终结果：]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2019%2F07%2F18%2F%E5%AE%9E%E9%AA%8C%E5%90%A7%20Guess%20Next%20Session%2F</url>
+    <content type="text"><![CDATA[实验吧 Guess Next Session 判断是否存在get的password变量，存在后，判断password和session里的password是否相等。 session存在于cookie里 所以删除sessionid和password不输入就可以相等]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2019%2F07%2F18%2F%E5%AE%9E%E9%AA%8C%E5%90%A7%20sha1()%E5%87%BD%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[实验吧 sha1()函数 代码审计 首先判断get方式的name变量和pasword变量是否存在，存在之后当name和password的sha1()函数结果相等时则输出flag]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2019%2F07%2F09%2F%E5%AE%9E%E9%AA%8C%E5%90%A7%20%E5%A4%A9%E7%BD%91%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88md5%20%20%E5%BC%B1%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83%20%20%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[实验吧 天网管理系统（md5 弱类型比较 反序列化） f12看源码 也就是把MD5加密过的username和‘0’作比较 用的是 == 弱比较 不比较类型 也就是 1==‘1’结果为真 ，1和’1freferf‘比较也为真 而字符串和字符串比较如果有e，E, . 这种会认为是科学记数法，也会转化为数字 ，如果字符串开始为0e，不管后面部分，字符串也就变成0，也就是说 需要找到一个字符串经过MD5加密后开始为0e，就能和“0”相等 240610708 MD5加密后为0e462097431906509019562988736854 用户名为240610708得到 进入/user.php?fame=hjkleffifer，得到源码 也就是把password进行反序列化，得到数组 然后数组的user值和pass值判断是否等于一个字符串，这个字符串到底是什么不知道，那怎么办 这里依旧是弱类型比较，如果是布尔型的1和字符串比较，不管字符串是什么都为真。 因此构建password a:2:{s:4:”user”;b:1;s:4:”pass”;b:1;}; 也就得到第一张图里的flag]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2019%2F07%2F08%2F0x00%2F</url>
+    <content type="text"><![CDATA[00截断 系统在对文件名的读取时，如果遇到0x00（十六进制00），就会认为读取已结束 但要注意是文件的16进制内容里的00，而不是文件名中的00 ！！！就是说系统是按16进制读取文件（或者说二进制），四位二进制就是十六进制 遇到ascii码为零的位置就停止，而这个ascii码为零的位置在16进制中是00，用0x开头表示16进制，也就是所说的0x00截断。 %00截断 %00通过url解码变成0x00本质依然是0x00截断]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[php反序列化]]></title>
+    <url>%2F2019%2F05%2F18%2Fphp%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[php反序列化 直接开始吧 不说了 一贯作风 代码加注释 序列化：将对象和其他数据类型序列化为字符串用于减少内存占用之类的 serialize（变量） 12345678910&lt;?php$a1 = "hello";//a1 字符串$a2 = array("php","天下第一");//数组$a3 = 12334;//数字echo serialize($a1);//s:5:"hello"; 输出对象a1 s代表 string字符 5 字符数量 之后对象内容 echo "&lt;br&gt;";echo serialize($a2);//a:2:&#123;i:0;s:5:"hello";i:1;s:5:"world";&#125;输出对象a2 a代表 array数组 2个内部对象 之后内容 echo "&lt;br&gt;";echo serialize($a3); //i:12334; 输出对象a3 i代表 int类型?&gt; 反序列化：将对象转化为字符转化为对象 123456789101112&lt;?phpclass xxx&#123; public $a1 = "whahwa";&#125;$x = new xxx();echo serialize($x);//O:3:"xxx":1:&#123;s:2:"a1";s:6:"whahwa";&#125; o代表”object“对象的意思，3代表类的名字长度 “xxx”类名字 1 一个内容 s:2:"a1"是第一个变量 s:6:"whahwa"是输出变量的内容大概就是这样echo "&lt;br&gt;";$t = serialize($x);$n = unserialize($t);echo var_dump($n); //object(xxx)#2 (1) &#123; ["a1"]=&gt; string(6) "whahwa" &#125; 说明再次被转化为对象?&gt; 以攻防世界的一道题为例 123456class xctf&#123;public $flag = '111';public function __wakeup()&#123;//魔术方法__wakeup 反序列化时会触发这个函数，但参数个数大于实际个数会使函数失效exit('bad requests');&#125;?code= 构造 code=O:4:”xctf”:2:{s:4:”flag”;s:3:”ww2”;}得flag 123456789__construct()当一个对象创建时被调用__destruct()当一个对象销毁时被调用__toString()当一个对象被当作一个字符串使用__sleep() 在对象在被序列化之前运行__wakeup将在序列化之后立即被调用 反序列化时可能遇到的函数，说不定以后会讲解一下这些函数 提供一个在线序列化的网站 https://www.w3cschool.cn/tryrun/showphp/demo_func_string_serialize]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[ip段学习]]></title>
+    <url>%2F2019%2F05%2F17%2Fip%E6%AE%B5%E5%AD%A6%E4%B9%A0%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[scrpay学习]]></title>
+    <url>%2F2019%2F05%2F13%2Fscrapy%E5%AD%A6%E4%B9%A0%2F</url>
+    <content type="text"><![CDATA[## 直接开始首先 scrapy是一个爬虫使用的框架，具体是什么百度一下吧 就不讲这个了。 安装和开始一个scrpay首先还是比较简单的 在cmd命令行中输入 1pip install scrapy pip自动安装scrapy和需要的包，之后，接着在你想创建这个scrapy的项目的路径下cmd输入下面命令来开始一个项目 1scrapy startproject myspiders 如果你遇到过和我一样的类似于报错“计算机识别不了的命令”之类的 那你有可能是没有添加环境变量，我就是因为这个一直不行。。。这个之后我也知道了环境变量是可以让系统识别到哪里去找到你的命令的东西 仅限win10 右键点击“这台电脑”有个属性 点进去，之后有个高级系统设置点进去，高级一栏下面有个环境变量点进去 系统变量那一栏找到有个变量名叫path点编辑进去 新建添加 将你自己有scrpay.exe那个目录加进去 emmm，我猜有人会问我怎么找到那个目录在cmd下输入pip install scrapy会自动显示这个东西在的目录 别急 不是那个，记住是有scrapy.exe的文件夹，我的是scripts那个 接下来，我就可以用那个命令创建项目]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[正则学习]]></title>
+    <url>%2F2019%2F05%2F12%2F%E6%AD%A3%E5%88%99%E5%AD%A6%E4%B9%A0%2F</url>
+    <content type="text"><![CDATA[字符串 string提供的方法是完全匹配 是准确的 字符串的一些方式 s=“hello world” s.find(‘llo’) #找到位置 返回索引 s.replace(‘ll’,’xx’) #字符串的替换 s.split(‘w’) #分割字符串 引入正则：模糊匹配 通过re模块调用 代码加注释 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758import reret = re.findall('w\w&#123;2&#125;l','hello world')print(ret) #模糊匹配ret = re.findall('alex', 'frefgergregralex2')print(ret) #准确匹配#元字符#正则表达式都是贪婪匹配 贪婪匹配 选择最大的匹配数#通配符ret = re.findall('w..l', 'hello world')print(ret) #通配符‘.’ 代指一个所有字符\t也可以 除了换行符#^ret = re.findall('^h...o','ffrfreffrhello')print(ret)ret = re.findall('^h...o','helloffrfreffrhello')print(ret) #^只在开始匹配#$ret = re.findall('a..x$','ddfewferfaxxxdf')print(ret)ret = re.findall('a..x$','ddfewferfaxxxdfaxxx')print(ret) #$只在结尾匹配# *：重复匹配ret = re.findall('ba*','ffggdfbaaaa1')print(ret) #相当于匹配前面一个字符 数量0到无穷ret = re.findall('.*','ffggdfbaaaa1')print(ret) #匹配出符合条件的 匹配出原字符和空# +:[1,+00]ret = re.findall('ba+','ddfsdfbaaaaffe')print(ret)ret = re.findall('b+a','ddfsdfbaaaafbafe')print(ret) #重复前面那个字符1到正无穷#？ [0,1]ret = re.findall('b?a','bbaddfsdfbaaaaffe')print(ret) #前面那个字符的0次或一次#&#123;&#125;ret = re.findall('ba&#123;3&#125;','ddfsdfbaaaaffe')print(ret) #&#123;&#125;指定匹配次数ret = re.findall('a&#123;1,4&#125;b','aaaab')print(ret) #贪婪匹配 选择最大的 &#123;1，&#125; 1到正无穷#结论 *等于&#123;0，正无穷&#125; +等于&#123;1，+00&#125; ？等于&#123;0，1&#125;]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[爬虫的学习]]></title>
     <url>%2F2019%2F05%2F08%2F%E7%88%AC%E8%99%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%2F</url>
     <content type="text"><![CDATA[直接开始吧首先 这是zzz贴出来的爬虫模板,(手动滑稽). 可以借鉴一下. 简单说一下，爬虫基本都是分为四步 请求 解析 匹配 23可合并 保存内容 bs4的学习 然后我比较喜欢beautiful soup这个模块 贴一段代码 大家看看吧 都有注释 bs4的官网讲的也很详细 12345678910111213141516171819202122232425262728293031323334353637383940414243444546from bs4 import BeautifulSoupimport lxml#1.转类型html_doc = """&lt;html&gt;&lt;head&gt;&lt;title id ="one"&gt;The Dormouse's story&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p class="title"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;&lt;p class="story"&gt;Once upon a time there were three little sisters; and their names were&lt;a href="http://example.com/elsie" class="sister" id="link1"&gt;Elsie&lt;/a&gt;,&lt;a href="http://example.com/lacie" class="sister" id="link2"&gt;Lacie&lt;/a&gt; and&lt;a href="http://example.com/tillie" class="sister" id="link3"&gt;Tillie&lt;/a&gt;;and they lived at the bottom of a well.&lt;/p&gt;&lt;p class="story"&gt;...&lt;/p&gt;"""#1.转类型 bs4.Bautifulsoupsoup = BeautifulSoup(html_doc,'lxml')#2通用解析方法#find--返回符合查询条件的第一个标签result = soup.find(name="p")#p标签result = soup.find(attrs=&#123;"class":"title"&#125;)#类名result = soup.find(text="Tillie")#find_all(返回标签对象)result =soup.find_all('a')result = soup.find_all('a', limit=1)result = soup.find_all(attrs=&#123;"class":"sister"&#125;)#select_one--css选择器result = soup.select_one('.sister')#select--css选择器result =soup.select('.sister')result = soup.select("#one")result = soup.select('head title')#head标签下的后代title标签result = soup.select('title,.title')#title标签或者title类同时取出result = soup.select('a[id="link3"]')#标签包裹的内容--listresult = soup.select('.title')[0].string#标签的属性#result = soup.select('#link3')[0].get('href')print(result) 乞丐版试试爬斗图网，可以拿去和别人斗图啦 哈哈哈 所用第三方模块 1.requests 2.bs4 3.lxml 不多说，代码加直接注释。 12345678910111213141516171819202122232425262728293031323334import requestsfrom bs4 import BeautifulSoup# bs4 是真好用啊 真香 哈哈哈from lxml import etreeurl = "http://www.bbsnet.com/tag/qq/page/"def run(geturl): for x in range(1, 27): urls = geturl+str(x) #将每一个page参数加上 result = requests.get(url=urls).content #获取请求的内容 soup = BeautifulSoup(result, 'lxml') #将获取的内容转换为soup的对象 result = soup.select('.zoom img') #通过bs4自带的css选择方法 找到img标签 for i in result: # 讲得到的那一页的img标签循环 print(i['src']) #获得打印图片的src x = i['src'] #将src赋给x image_name = x[-7:] #给image取个名字 之后要用 print(image_name) try: image = requests.get(x).content #通过url获取image的内容 注意是binary 二进制 #print(image) with open('%s'%image_name, 'wb') as f: #开始写入文件 文件名就是刚刚那个 f.write(image) print('ok\n') #写入成功 打印ok 换行 except: #出了意外就下一个 continueif __name__ == '__main__': run(geturl=url) 效果图： 进阶版所用第三方模块 1.requests 2.bs4 3.lxml 4.selenium 比起刚刚那个加入一个selenium模块，可以去驱动浏览器，至于用这个东西驱动浏览器还需要一些其他的操作，百度一下吧，有很多的。 这次爬笔趣阁，看小说的。。。 123456789101112131415161718192021222324252627import requestsfrom bs4 import BeautifulSoupfrom lxml import etreefrom selenium import webdriverurl = 'http://www.xbiquge.la/10/10512/'def run(): for i in range(4541611, 17384875): try: browser = webdriver.Chrome() #初始化对象 浏览器是chrome browser.get(url+str(i)+'.html') #请求页面 soup = BeautifulSoup(browser.page_source,'lxml') #转换为soup对象 print(soup) #打印一下内容 result = soup.select('div[id="content"]') #筛选一下内容 print(str(result).replace('&lt;br/&gt;', '')) #因为有换行符 用字符串的replace方法去掉 with open(str(i)+'.txt', 'w', encoding='utf-8')as f: f.write(str(result).replace('&lt;br/&gt;', '')) #存入 except: continue finally: browser.close() #关闭浏览器if __name__ == '__main__': run() 效果图：]]></content>
@@ -59,10 +109,5 @@
     <title><![CDATA[hexo blog 心路历程]]></title>
     <url>%2F2019%2F01%2F15%2Fhexo-blog-%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[first 说明我已经说过了我是个菜鸡，只是当时搭建博客时还是痛苦了一下，因此决定写下来以梳理一下自己的收获，如何我有不足或错误的地方，希望大家能指出。 ps:如果在某些地方出了错，请先去之前附上链接的那篇文章看看，如果那篇文章中没有提出你的问题，首先看看你的出错信息，到底是warning还是error，由于git最开始只能在Linux和UNIX上使用，之后可以在windows上使用，因此由于操作系统不同，所以可能会出现在一些地方warning，但是这不影响接下来的使用，如果是error，那就只能看看错误信息，然后度娘吧，我太菜了。。。在此附上我觉得写的很好的关于hexo+github搭建博客的文章的链接，我当时也是按照这篇文章操作的，非常感谢文章作者，在此附上链接 hexo+github博客搭建之路 附上另外一位大佬的教程 second 开始安装 Node.js和Git（搭建环境）如果你是和我一样的小白我相信你一定不知道这两个是什么鬼东西，而如果你是大佬就不用看我写的了。。。 Node.js：Node.js 是一个让 JavaScript 运行在服务端的开发平台 是JavaScript工具（垃圾解释）Git：git就比较好解释了 分布式版本控制系统 什么？你想知道更多关于git的？文章链接 廖雪峰老师讲的是真的好大家可以多看看，我大概看了一下，就只知道git很牛逼。。。Node.js下载链接git下载链接git的官网下载会很慢 总的来说这两个意义是搭建环境，实在不懂也没关系。安装完成后，在开始菜单找到git bash 进入输入：git config –global user.name “你的github用户名”git congig –global user.email “你的github留下的邮箱”config 配置 –global 全局声明 记住都不能用中文字符！ third 安装hexo这个比较简单还是在git bash 命令行里 直接输入：npm install -g hexo-cli 配置github来到github登录（注册) 这里的仓库名称是一定是你注册的名字 比如我是wcqy-ye 那我就是 wcqy-ye.github.io (我就是曾经搞错过，最后就出错了)生成添加密钥在git终端输入ssh-keygen -t rsa -C “Github的注册邮箱地址”一路确定过来就好生成完成后会有两个文件 id_rsa和id_rsa.pub一个是ssh公钥一个是ssh私钥找不到路径的可以看看我的，不一定一样但是应该都在c盘，用编辑器打开 全部复制内容,进入设置公钥title你随意 复制的内容到key里然后点击add ssh key 本地环境对了 ，github仓库也有了 现在就是在本地开始搭建仓库了初始化博客在电脑F盘(其实随便)新建文件夹(这个就是之后的博客相关文件的文件夹了，起个好名字吧！，随便然并卵。。。)进入这个文件夹，然后右键，打开git bash输入 hexo init blog (初始化博客，也就是说成功后，在本地博客就已经搭建好了)进入到blog文件夹下，比喻（不进去是打不开本地博客的，你在窗户外叫窗户内的人他是听不见的）输入 hexo s，可以看到已经打开了，本地4000端口 浏览器 输入localhost:4000 看看是不是这样本地博客雏形就有了 本地博客配置在blog目录下，用sublime/notepad++等文本编辑器打开_config.yml文件，修改参数信息。我知道肯定有人不知道什么是blog目录我当时就不知道。。。看看吧 语言和地区都是有规范的，网上能找到。。。 接下来部署到github的远程仓库还是在刚刚那个文件里大概是在最后的位置其中repo项是之前Github上创建好的仓库的地址，可以通过如下图所示的方式得到： 发表文章 git终端输入 hexo new “文章名字” 记住一定要在这个目录下输入不然不行 根据路径找到文章，使用markdown语言编辑 接下来在刚刚那个目录(blog目录)输入三个命令： 打开 http://localhost:4000/ 预览本地的样子 最后一步发布到远程执行 hexo deploy正常情况下，第一次会跳出Github登录，直接登录；如果没有问题，在浏览器输入博客地址：然后就可以看到已经有内容了。（有可能稍有延迟） 所以这就是大功告成了！！！一些常用命令和基础hexo 有很多的主题大家可以自己去多找一下搭建博客的方式也远不止hexo+github但我太菜了。。。。 现在来介绍常用的Hexo 命令npm install hexo -g #安装Hexonpm update hexo -g #升级hexo init #初始化博客 命令简写hexo n “我的博客” == hexo new “我的博客” #新建文章hexo g == hexo generate #生成hexo s == hexo server #启动服务预览hexo d == hexo deploy #部署 hexo server #Hexo会监视文件变动并自动更新，无须重启服务器hexo server -s #静态模式hexo server -p 5000 #更改端口hexo server -i 192.168.1.1 #自定义 IPhexo clean #清除缓存，若是网页正常情况下可以忽略这条命令 刚刚的三个命令依次是新建一篇博客文章、生成网页、在本地预览的操作。 blog根目录里的_config.yml文件称为站点配置文件进入根目录里的themes文件夹，里面也有个_config.yml文件，这个称为主题配置文件]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F01%2F10%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>
